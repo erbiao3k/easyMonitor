@@ -6,17 +6,13 @@ import (
 	"log"
 )
 
+// CpuInfo CPU信息
 type CpuInfo struct {
-	// 厂商
-	Vendor string
-	// 核心数
-	Cores int32
-	// 型号
-	ModelName string
-	// 主频
-	Mhz int
-	// 标识
-	Flags []string
+	Vendor    string   // 厂商
+	Cores     int32    // 核心数
+	ModelName string   // 型号
+	Mhz       int      // 主频
+	Flags     []string // 标识
 }
 
 func Info() (ci CpuInfo) {
