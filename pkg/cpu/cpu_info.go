@@ -3,7 +3,6 @@ package cpu
 import (
 	"easyMonitor/utils/number"
 	"github.com/shirou/gopsutil/v3/cpu"
-	"log"
 )
 
 // CpuInfo CPU信息
@@ -23,8 +22,4 @@ func Info() (ci CpuInfo) {
 	ci.Mhz = number.Round(c[0].Mhz)
 	ci.Flags = c[0].Flags
 	return
-}
-
-func init() {
-	log.Printf(`【CPU信息】 厂商: "%s", 核心数: "%d", 型号: "%s", 主频: "%d", 标识: "%s"`, Info().Vendor, Info().Cores, Info().ModelName, Info().Mhz, Info().Flags)
 }

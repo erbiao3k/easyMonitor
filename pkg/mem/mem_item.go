@@ -2,7 +2,6 @@ package mem
 
 import (
 	"github.com/shirou/gopsutil/v3/mem"
-	"log"
 )
 
 // MemItem 内存监控项
@@ -18,7 +17,7 @@ type MemItem struct {
 	SwapFree    uint64  // 空闲swap大小
 }
 
-func Info() (mi MemItem) {
+func Item() (mi MemItem) {
 	m, _ := mem.VirtualMemory()
 
 	mi.Total = m.Total
@@ -32,8 +31,4 @@ func Info() (mi MemItem) {
 	mi.SwapFree = m.SwapFree
 
 	return
-}
-
-func init() {
-	log.Printf(`【内存信息】 内存总量: "%d", 内存使用率: "%.2f%%", swap总量: "%d", swap空闲大小: "%d"`, Info().Total, Info().UsedPercent, Info().SwapTotal, Info().SwapFree)
 }
